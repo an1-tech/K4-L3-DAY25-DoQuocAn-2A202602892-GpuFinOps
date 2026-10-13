@@ -1,0 +1,9 @@
+job_id,gpu_type,tier,on_demand,optimized
+job-train-llm,H100,spot,12000,7596
+job-train-embed,A100,spot,2148,1393
+job-finetune,H100,spot,900,570
+job-infer-chat,A10G,reserved,4320,2592
+job-infer-rag,A100,reserved,3866,2160
+job-infer-search,L4,reserved,1728,972
+job-dev-sandbox,A10G,spot,480,203
+job-batch-eval,H100,spot,225,142

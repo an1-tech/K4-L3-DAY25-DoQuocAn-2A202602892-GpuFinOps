@@ -7,10 +7,9 @@ import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
 import csv
 import os
-from missions._common import load_csv, num, ROOT
+from missions._common import load_csv, ROOT
 from finops import allocation
-from missions.m2_inference_levers import MODEL_PRICES
-from finops import pricing
+from missions.m2_inference_levers import optimized_request_breakdown
 
 TAGS = ["team", "project"]
 
@@ -19,11 +18,7 @@ def run(verbose: bool = True) -> dict:
     rows = load_csv("token_usage.csv")
     priced = []
     for r in rows:
-        inp, out = int(num(r["input_tokens"])), int(num(r["output_tokens"]))
-        pin, pout = MODEL_PRICES[r["route_tier"]]
-        cost = pricing.request_cost(inp, out, pin, pout,
-                                    cached_in=int(num(r["cached_input_tokens"])),
-                                    batch=bool(int(num(r["is_batch"]))))
+        cost = optimized_request_breakdown(r)["cost_usd"]
         priced.append({"team": r["team"], "project": r["project"],
                        "service": "gpu-inference", "cost": cost})
 
@@ -36,7 +31,7 @@ def run(verbose: bool = True) -> dict:
     focus = allocation.to_focus_rows(priced[:50])
     out_path = os.path.join(ROOT, "outputs", "focus_export.csv")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
-    with open(out_path, "w", newline="") as f:
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["BillingAccountId", "ChargePeriodStart", "ServiceCategory",
                     "ServiceName", "ResourceId", "BilledCost", "BillingCurrency", "team", "project"])

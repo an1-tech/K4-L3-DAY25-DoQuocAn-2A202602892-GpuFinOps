@@ -1,0 +1,12 @@
+{
+  "data\\gpu_telemetry.csv": "0e2351c932b182991b95e4ea12c180addd18b84eba1942d2cce107134a0a145d",
+  "data\\price_catalog.csv": "64783180a4aed0635cb370895e32e0434f67ccd8e7aa7d0c63a0b6fd2b7b5476",
+  "data\\token_usage.csv": "9e6c5657f2689aeb4d0ce9a572ada153cea89c69587b77afe96fd5e3f2bc94a9",
+  "data\\workloads.csv": "e183fea3b26667b5efb444241ec8ea248c6f883b62eef2607ebe637649583967",
+  "tests\\__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tests\\test_allocation.py": "fef62ad180fb63493ab139786bed79857fe29e96e5b9aef7cc0d9f7c2caf4ab7",
+  "tests\\test_data_and_missions.py": "4509c30a905cce1598936a6c37a17a8d9e9ccb05a0df0e74e6bb40717eee7646",
+  "tests\\test_metrics.py": "2d61ca08311f339fb462c08343831e8a8b3003e48d9959ff32178a9a53dc7f6f",
+  "tests\\test_pricing.py": "87c3b62192413f0288749a94beb45d1fe0afee01899c62461596946ba0945f1f",
+  "tests\\test_report.py": "8b7b412f267f968dfe023e0d0edf520b721bc08b4e2bb6d577193d1a1067bb22"
+}

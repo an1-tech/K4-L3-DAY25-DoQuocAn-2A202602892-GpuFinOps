@@ -1,0 +1,6 @@
+job_id,days,gpu_hours,energy_wh,carbon_before_g,carbon_after_g,carbon_saved_g
+job-train-llm,14,2240.0,1568000.0,595840.0,47040.0,548800.0
+job-train-embed,5,200.0,80000.0,30400.0,2400.0,28000.0
+job-finetune,3,36.0,25200.0,9576.0,756.0,8820.0
+job-dev-sandbox,22,352.0,52800.0,20064.0,1584.0,18480.0
+job-batch-eval,30,90.0,63000.0,23940.0,1890.0,22050.0

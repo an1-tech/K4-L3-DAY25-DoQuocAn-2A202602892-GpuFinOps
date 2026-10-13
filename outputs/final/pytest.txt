@@ -1,0 +1,50 @@
+.......................................                                  [100%]
+=================================== PASSES ====================================
+____________________ test_data_generates_deterministically ____________________
+---------------------------- Captured stdout call -----------------------------
+Generated: price_catalog.csv, gpu_telemetry.csv, token_usage.csv, workloads.csv
+Generated: price_catalog.csv, gpu_telemetry.csv, token_usage.csv, workloads.csv
+__________________________ test_missions_end_to_end ___________________________
+---------------------------- Captured stdout call -----------------------------
+Generated: price_catalog.csv, gpu_telemetry.csv, token_usage.csv, workloads.csv
+=========================== short test summary info ===========================
+PASSED tests/test_allocation.py::test_cost_by_tag
+PASSED tests/test_allocation.py::test_tag_coverage_and_gate
+PASSED tests/test_allocation.py::test_focus_rows
+PASSED tests/test_data_and_missions.py::test_data_generates_deterministically
+PASSED tests/test_data_and_missions.py::test_missions_end_to_end
+PASSED tests/test_metrics.py::test_mfu_basic
+PASSED tests/test_metrics.py::test_mbu_and_roofline
+PASSED tests/test_metrics.py::test_flag_util_lies
+PASSED tests/test_metrics.py::test_idle_waste
+PASSED tests/test_pricing.py::test_discount_stack_is_multiplicative
+PASSED tests/test_pricing.py::test_break_even
+PASSED tests/test_pricing.py::test_recommend_tier
+PASSED tests/test_pricing.py::test_request_cost_and_cache
+PASSED tests/test_pricing.py::test_spot_checkpoint_saves
+PASSED tests/test_report.py::test_build_report_has_savings
+PASSED extension_tests/test_extensions.py::test_cache_gate_boundary[1-0.25-0.2-False]
+PASSED extension_tests/test_extensions.py::test_cache_gate_boundary[2-0.25-0.2-True]
+PASSED extension_tests/test_extensions.py::test_cache_gate_boundary[2-0.25-0.1-False]
+PASSED extension_tests/test_extensions.py::test_cache_gate_boundary[3-0.25-0.1-True]
+PASSED extension_tests/test_extensions.py::test_cache_gate_boundary[2-1.8-1.0-True]
+PASSED extension_tests/test_extensions.py::test_cache_gate_boundary[1-0.0-0.2-True]
+PASSED extension_tests/test_extensions.py::test_cache_gate_rejects_invalid_economics[args0]
+PASSED extension_tests/test_extensions.py::test_cache_gate_rejects_invalid_economics[args1]
+PASSED extension_tests/test_extensions.py::test_cache_gate_rejects_invalid_economics[args2]
+PASSED extension_tests/test_extensions.py::test_cache_gate_rejects_invalid_economics[args3]
+PASSED extension_tests/test_extensions.py::test_cache_gate_rejects_invalid_economics[args4]
+PASSED extension_tests/test_extensions.py::test_cache_gate_rejects_invalid_economics[args5]
+PASSED extension_tests/test_extensions.py::test_cache_gate_rejects_invalid_economics[args6]
+PASSED extension_tests/test_extensions.py::test_low_reuse_skips_write_and_cached_read_discount
+PASSED extension_tests/test_extensions.py::test_cache_write_is_amortized_but_not_batch_discounted
+PASSED extension_tests/test_extensions.py::test_batch_changes_break_even_gate
+PASSED extension_tests/test_extensions.py::test_no_reuse_or_no_cacheable_input_has_no_write_charge[0-800]
+PASSED extension_tests/test_extensions.py::test_no_reuse_or_no_cacheable_input_has_no_write_charge[10-0]
+PASSED extension_tests/test_extensions.py::test_cached_tokens_cannot_exceed_input
+PASSED extension_tests/test_extensions.py::test_cache_decision_is_invariant_under_price_scale
+PASSED extension_tests/test_extensions.py::test_allocation_and_breakdown_reconcile_with_inference
+PASSED extension_tests/test_extensions.py::test_carbon_uses_actual_days_and_gpu_count
+PASSED extension_tests/test_extensions.py::test_carbon_keeps_work_constant_across_regions
+PASSED extension_tests/test_extensions.py::test_carbon_empty_selection_exports_valid_headers
+39 passed in 1.55s

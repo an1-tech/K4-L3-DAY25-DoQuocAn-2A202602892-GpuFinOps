@@ -6,6 +6,31 @@ live prices as fast-moving (re-baseline before each cohort).
 from __future__ import annotations
 
 
+def cache_is_worth_it(
+    avg_cache_reads: float,
+    write_cost_per_m: float,
+    price_in_per_m: float,
+    read_discount: float = 0.10,
+) -> bool:
+    """Compare cache-read savings with an additional write fee (USD/1M tokens).
+
+    price_in_per_m must already include the batch multiplier, if applicable.
+    write_cost_per_m is incremental to ordinary request billing. Prefix reuse
+    and write prices are scenario assumptions, not measured by this lab's CSV.
+    """
+    from math import isfinite
+
+    values = (avg_cache_reads, write_cost_per_m, price_in_per_m, read_discount)
+    if not all(isfinite(value) for value in values):
+        raise ValueError("Cache economics inputs must be finite")
+    if avg_cache_reads < 0 or write_cost_per_m < 0 or price_in_per_m < 0:
+        raise ValueError("Reads and prices must be non-negative")
+    if not 0 <= read_discount <= 1:
+        raise ValueError("read_discount must be between 0 and 1")
+    saving_per_read = price_in_per_m * (1.0 - read_discount)
+    return avg_cache_reads * saving_per_read >= write_cost_per_m
+
+
 def request_cost(
     input_tok: int,
     output_tok: int,

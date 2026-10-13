@@ -1,0 +1,8 @@
+gpu_type,provider_class,on_demand_hr,spot_hr,reserved_1yr_hr,reserved_3yr_hr,hbm_gb,peak_tflops_fp16,peak_tflops_fp4,peak_bw_tbs,watts
+H100,neocloud,2.5,1.5,2.0,1.4,80,990,0,3.35,700
+H200,neocloud,3.95,2.6,3.2,2.4,141,990,0,4.8,700
+A100,neocloud,1.79,1.1,1.4,1.0,80,312,0,2.0,400
+A10G,neocloud,1.0,0.4,0.8,0.6,24,125,0,0.6,150
+L4,neocloud,0.8,0.35,0.6,0.45,24,121,0,0.3,72
+B200,neocloud,5.09,2.68,4.2,3.2,192,2250,9000,8.0,1000
+MI300X,neocloud,1.95,1.2,1.6,1.2,192,1307,0,5.3,750

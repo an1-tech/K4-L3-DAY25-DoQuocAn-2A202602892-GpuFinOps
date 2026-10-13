@@ -9,6 +9,7 @@ import os
 from missions._common import num, catalog_by_type, ROOT
 from finops import report, sustainability
 from missions import m1_efficiency_audit, m2_inference_levers, m3_purchasing
+from missions import carbon_scheduling, lab_analysis
 
 DAYS = 30
 # one tier down for over-provisioned ("util-lie") GPUs
@@ -53,9 +54,19 @@ def run(verbose: bool = True) -> dict:
     }
 
     md = report.build_report(baseline, optimized, levers, sustainability=sust)
+    md = md.replace("Cheapest+cleanest region:", "Lowest-carbon region:")
+    evidence = lab_analysis.collect()
+    carbon = carbon_scheduling.run(verbose=False)
+    md += "\n\n" + lab_analysis.report_sections(evidence, r1, r2, r3, levers)
+    md += "\n\n" + carbon["markdown"] + "\n"
+    result = {
+        "baseline_monthly": round(baseline), "optimized_monthly": round(optimized),
+        "levers": levers, "total_savings_pct": round(total_pct, 1),
+    }
+    lab_analysis.export(evidence, r1, r2, r3, result, carbon)
     out_md = os.path.join(ROOT, "outputs", "report.md")
     os.makedirs(os.path.dirname(out_md), exist_ok=True)
-    with open(out_md, "w") as f:
+    with open(out_md, "w", encoding="utf-8") as f:
         f.write(md)
     png = report.savings_waterfall(levers, os.path.join(ROOT, "outputs", "savings.png"))
 
@@ -64,8 +75,7 @@ def run(verbose: bool = True) -> dict:
         print(md)
         print(f"\nWritten: outputs/report.md" + (f" + outputs/savings.png" if png else " (matplotlib absent: PNG skipped)"))
 
-    return {"baseline_monthly": round(baseline), "optimized_monthly": round(optimized),
-            "levers": levers, "total_savings_pct": round(total_pct, 1)}
+    return result
 
 
 if __name__ == "__main__":

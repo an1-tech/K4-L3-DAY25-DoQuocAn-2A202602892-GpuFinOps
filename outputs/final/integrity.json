@@ -1,0 +1,12 @@
+{
+  "data\\gpu_telemetry.csv": true,
+  "data\\price_catalog.csv": true,
+  "data\\token_usage.csv": true,
+  "data\\workloads.csv": true,
+  "tests\\__init__.py": true,
+  "tests\\test_allocation.py": true,
+  "tests\\test_data_and_missions.py": true,
+  "tests\\test_metrics.py": true,
+  "tests\\test_pricing.py": true,
+  "tests\\test_report.py": true
+}

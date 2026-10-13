@@ -1,0 +1,13 @@
+== M3 Purchasing Strategy ==
+break-even utilization @ 45% reserved discount = 55%
+job               gpu    tier          on-demand   optimized
+job-train-llm     H100   spot       $     12,000$      7,596
+job-train-embed   A100   spot       $      2,148$      1,393
+job-finetune      H100   spot       $        900$        570
+job-infer-chat    A10G   reserved   $      4,320$      2,592
+job-infer-rag     A100   reserved   $      3,866$      2,160
+job-infer-search  L4     reserved   $      1,728$        972
+job-dev-sandbox   A10G   spot       $        480$        203
+job-batch-eval    H100   spot       $        225$        142
+
+monthly: on-demand $25,667 -> optimized $15,627  (39.1% saved)

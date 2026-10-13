@@ -1,0 +1,464 @@
+{
+  "data_rows": {
+    "price_catalog.csv": 7,
+    "gpu_telemetry.csv": 264,
+    "token_usage.csv": 2400,
+    "workloads.csv": 8
+  },
+  "data_sha256": {
+    "price_catalog.csv": "64783180a4aed0635cb370895e32e0434f67ccd8e7aa7d0c63a0b6fd2b7b5476",
+    "gpu_telemetry.csv": "0e2351c932b182991b95e4ea12c180addd18b84eba1942d2cce107134a0a145d",
+    "token_usage.csv": "9e6c5657f2689aeb4d0ce9a572ada153cea89c69587b77afe96fd5e3f2bc94a9",
+    "workloads.csv": "e183fea3b26667b5efb444241ec8ea248c6f883b62eef2607ebe637649583967"
+  },
+  "total_tokens": 7533027,
+  "stages": [
+    {
+      "stage": "Baseline: large, no cache, no batch",
+      "cost_daily_usd": 48.87416100000006,
+      "usd_per_million_tokens": 6.487984312282441,
+      "incremental_savings_daily_usd": 0.0
+    },
+    {
+      "stage": "Cascade",
+      "cost_daily_usd": 11.475642800000013,
+      "usd_per_million_tokens": 1.5233773621148596,
+      "incremental_savings_daily_usd": 37.39851820000004
+    },
+    {
+      "stage": "Cascade + cache gate (reads only)",
+      "cost_daily_usd": 10.279188199999991,
+      "usd_per_million_tokens": 1.3645494965038611,
+      "incremental_savings_daily_usd": 1.1964546000000222
+    },
+    {
+      "stage": "Cascade + cache gate + batch (reads only)",
+      "cost_daily_usd": 8.484622969999995,
+      "usd_per_million_tokens": 1.1263231858853016,
+      "incremental_savings_daily_usd": 1.7945652299999963
+    },
+    {
+      "stage": "Optimized including amortized writes",
+      "cost_daily_usd": 8.650797219999985,
+      "usd_per_million_tokens": 1.1483826116646052,
+      "incremental_savings_daily_usd": -0.1661742499999903
+    }
+  ],
+  "cache_scenarios": [
+    {
+      "assumed_reads_per_prefix": 0.0,
+      "cost_daily_usd": 9.658588099999994,
+      "usd_per_million_tokens": 1.2821656022207266,
+      "write_daily_usd": 0.0,
+      "cache_enabled_requests": 0,
+      "savings_pct": 80.23784367367456
+    },
+    {
+      "assumed_reads_per_prefix": 1.0,
+      "cost_daily_usd": 9.658588099999994,
+      "usd_per_million_tokens": 1.2821656022207266,
+      "write_daily_usd": 0.0,
+      "cache_enabled_requests": 0,
+      "savings_pct": 80.23784367367456
+    },
+    {
+      "assumed_reads_per_prefix": 2.0,
+      "cost_daily_usd": 9.306748314999997,
+      "usd_per_million_tokens": 1.2354593067302158,
+      "write_daily_usd": 0.7996358749999986,
+      "cache_enabled_requests": 1985,
+      "savings_pct": 80.95773282941883
+    },
+    {
+      "assumed_reads_per_prefix": 3.0,
+      "cost_daily_usd": 9.038537136666658,
+      "usd_per_million_tokens": 1.1998546051496508,
+      "write_daily_usd": 0.5539141666666654,
+      "cache_enabled_requests": 2400,
+      "savings_pct": 81.50651192423202
+    },
+    {
+      "assumed_reads_per_prefix": 10.0,
+      "cost_daily_usd": 8.650797219999985,
+      "usd_per_million_tokens": 1.1483826116646052,
+      "write_daily_usd": 0.16617425000000025,
+      "cache_enabled_requests": 2400,
+      "savings_pct": 82.29985529572575
+    }
+  ],
+  "cache_thresholds": [
+    {
+      "model_tier": "small",
+      "batch": 0,
+      "input_price_per_m": 0.2,
+      "additional_write_price_per_m": 0.25,
+      "break_even_reads": 1.3888888888888886
+    },
+    {
+      "model_tier": "small",
+      "batch": 1,
+      "input_price_per_m": 0.2,
+      "additional_write_price_per_m": 0.25,
+      "break_even_reads": 2.7777777777777772
+    },
+    {
+      "model_tier": "large",
+      "batch": 0,
+      "input_price_per_m": 3.0,
+      "additional_write_price_per_m": 3.75,
+      "break_even_reads": 1.3888888888888888
+    },
+    {
+      "model_tier": "large",
+      "batch": 1,
+      "input_price_per_m": 3.0,
+      "additional_write_price_per_m": 3.75,
+      "break_even_reads": 2.7777777777777777
+    }
+  ],
+  "legacy_read_only_daily": 8.484622969999995,
+  "by_team": [
+    {
+      "team": "assistant",
+      "cost_daily_usd": 2.6815789799999963,
+      "cost_share_pct": 30.998056153719393
+    },
+    {
+      "team": "search",
+      "cost_daily_usd": 2.5031505000000025,
+      "cost_share_pct": 28.935489254249365
+    },
+    {
+      "team": "eval",
+      "cost_daily_usd": 1.8008123050000004,
+      "cost_share_pct": 20.81672080853608
+    },
+    {
+      "team": "rag",
+      "cost_daily_usd": 1.6652554350000008,
+      "cost_share_pct": 19.24973378349517
+    }
+  ],
+  "tag_coverage": 0.9179166666666667,
+  "chargeback_ready": true,
+  "reasoning_groups": [
+    {
+      "is_reasoning": 0,
+      "requests": 2199,
+      "request_share_pct": 91.625,
+      "tokens": 6291871,
+      "token_share_pct": 83.52380789289617,
+      "cost_daily_usd": 7.251140595,
+      "cost_share_pct": 83.82048972591684,
+      "energy_wh": 1887.5612999999998,
+      "energy_share_pct": 5.959094260095418
+    },
+    {
+      "is_reasoning": 1,
+      "requests": 201,
+      "request_share_pct": 8.375,
+      "tokens": 1241156,
+      "token_share_pct": 16.476192107103824,
+      "cost_daily_usd": 1.399656625,
+      "cost_share_pct": 16.179510274083157,
+      "energy_wh": 29787.744,
+      "energy_share_pct": 94.04090573990457
+    }
+  ],
+  "traffic_energy_wh": 31675.3053,
+  "traffic_energy_per_query_wh": 13.198043875,
+  "fleet_on_demand_daily": 513.12,
+  "m1": {
+    "summary": [
+      {
+        "gpu_id": "gpu-h100-0",
+        "gpu_type": "H100",
+        "gpu_util_pct": 94.4,
+        "mfu": 0.417,
+        "mbu": 0.446,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-h100-1",
+        "gpu_type": "H100",
+        "gpu_util_pct": 95.2,
+        "mfu": 0.408,
+        "mbu": 0.44,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-h100-2",
+        "gpu_type": "H100",
+        "gpu_util_pct": 94.3,
+        "mfu": 0.401,
+        "mbu": 0.423,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-h100-3",
+        "gpu_type": "H100",
+        "gpu_util_pct": 93.1,
+        "mfu": 0.427,
+        "mbu": 0.444,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-h100-4",
+        "gpu_type": "H100",
+        "gpu_util_pct": 98.2,
+        "mfu": 0.194,
+        "mbu": 0.207,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-h100-5",
+        "gpu_type": "H100",
+        "gpu_util_pct": 61.1,
+        "mfu": 0.261,
+        "mbu": 0.271,
+        "idle_hours": 8
+      },
+      {
+        "gpu_id": "gpu-a100-0",
+        "gpu_type": "A100",
+        "gpu_util_pct": 31.4,
+        "mfu": 0.259,
+        "mbu": 0.276,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-a100-1",
+        "gpu_type": "A100",
+        "gpu_util_pct": 28.0,
+        "mfu": 0.236,
+        "mbu": 0.247,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-a10g-0",
+        "gpu_type": "A10G",
+        "gpu_util_pct": 25.0,
+        "mfu": 0.218,
+        "mbu": 0.235,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-a10g-1",
+        "gpu_type": "A10G",
+        "gpu_util_pct": 96.9,
+        "mfu": 0.268,
+        "mbu": 0.302,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-l4-0",
+        "gpu_type": "L4",
+        "gpu_util_pct": 40.0,
+        "mfu": 0.302,
+        "mbu": 0.328,
+        "idle_hours": 0
+      }
+    ],
+    "lies": [
+      {
+        "gpu_id": "gpu-h100-4",
+        "gpu_type": "H100",
+        "gpu_util_pct": 98.2,
+        "mfu": 0.194,
+        "mbu": 0.207,
+        "idle_hours": 0
+      },
+      {
+        "gpu_id": "gpu-a10g-1",
+        "gpu_type": "A10G",
+        "gpu_util_pct": 96.9,
+        "mfu": 0.268,
+        "mbu": 0.302,
+        "idle_hours": 0
+      }
+    ],
+    "idle_waste_daily": 20.0
+  },
+  "m2": {
+    "baseline_daily_raw": 48.87416100000006,
+    "optimized_daily_raw": 8.650797219999985,
+    "baseline_daily": 48.87,
+    "optimized_daily": 8.65,
+    "baseline_per_m": 6.488,
+    "optimized_per_m": 1.148,
+    "savings_pct": 82.3,
+    "total_tokens": 7533027,
+    "cache_avg_reads": 10.0,
+    "cache_enabled_requests": 2400,
+    "cache_write_daily": 0.16617425000000025
+  },
+  "m3": {
+    "recommendations": [
+      {
+        "job_id": "job-train-llm",
+        "gpu_type": "H100",
+        "tier": "spot",
+        "on_demand": 12000,
+        "optimized": 7596
+      },
+      {
+        "job_id": "job-train-embed",
+        "gpu_type": "A100",
+        "tier": "spot",
+        "on_demand": 2148,
+        "optimized": 1393
+      },
+      {
+        "job_id": "job-finetune",
+        "gpu_type": "H100",
+        "tier": "spot",
+        "on_demand": 900,
+        "optimized": 570
+      },
+      {
+        "job_id": "job-infer-chat",
+        "gpu_type": "A10G",
+        "tier": "reserved",
+        "on_demand": 4320,
+        "optimized": 2592
+      },
+      {
+        "job_id": "job-infer-rag",
+        "gpu_type": "A100",
+        "tier": "reserved",
+        "on_demand": 3866,
+        "optimized": 2160
+      },
+      {
+        "job_id": "job-infer-search",
+        "gpu_type": "L4",
+        "tier": "reserved",
+        "on_demand": 1728,
+        "optimized": 972
+      },
+      {
+        "job_id": "job-dev-sandbox",
+        "gpu_type": "A10G",
+        "tier": "spot",
+        "on_demand": 480,
+        "optimized": 203
+      },
+      {
+        "job_id": "job-batch-eval",
+        "gpu_type": "H100",
+        "tier": "spot",
+        "on_demand": 225,
+        "optimized": 142
+      }
+    ],
+    "on_demand_monthly": 25667,
+    "optimized_monthly": 15627,
+    "savings_pct": 39.1
+  },
+  "m5": {
+    "baseline_monthly": 27133,
+    "optimized_monthly": 14631,
+    "levers": {
+      "Inference (cascade/cache/batch)": 1207,
+      "Purchasing (spot/reserved)": 10040,
+      "Right-size util-lies": 655,
+      "Kill idle GPUs": 600
+    },
+    "total_savings_pct": 46.1
+  },
+  "carbon": {
+    "markdown": "## Carbon-aware Scheduling\n\nPeriod: actual days in workloads.csv; not a 30-day monthly projection.\nAssumptions: constant catalog watts; equal GPU-hours in all regions;\nno PUE, transfer costs, spot rework, or GPU rental differences included.\n\n| Job | GPU-hours | Wh | Before gCO2e | After gCO2e | Saved gCO2e |\n|---|---:|---:|---:|---:|---:|\n| job-train-llm | 2240 | 1568000 | 595840 | 47040 | 548800 |\n| job-train-embed | 200 | 80000 | 30400 | 2400 | 28000 |\n| job-finetune | 36 | 25200 | 9576 | 756 | 8820 |\n| job-dev-sandbox | 352 | 52800 | 20064 | 1584 | 18480 |\n| job-batch-eval | 90 | 63000 | 23940 | 1890 | 22050 |\n\n| Region | USD/kWh | gCO2e/kWh | Electricity USD | Carbon gCO2e |\n|---|---:|---:|---:|---:|\n| us-east-1 | 0.120 | 380 | 214.680 | 679820 |\n| us-west-2 | 0.070 | 120 | 125.230 | 214680 |\n| europe-north1 | 0.090 | 30 | 161.010 | 53670 |\n| europe-central2 | 0.180 | 660 | 322.020 | 1180740 |\n| us-east-wa | 0.055 | 90 | 98.395 | 161010 |\n\nTotal energy: 1789000 Wh.\nTotal carbon saved at europe-north1: 626150 gCO2e.\nCheapest electricity: us-east-wa. Lowest carbon: europe-north1.\nBudget rule (assumed): carbon <= 120 gCO2e/kWh, then lowest price: us-east-wa.\nCheck GPU availability, software compatibility, latency, and data residency before migration.\nElectricity is not added as an extra saving to the GPU rental savings in M5.",
+    "jobs": [
+      {
+        "job_id": "job-train-llm",
+        "days": 14,
+        "gpu_hours": 2240.0,
+        "energy_wh": 1568000.0,
+        "carbon_before_g": 595840.0,
+        "carbon_after_g": 47040.0,
+        "carbon_saved_g": 548800.0
+      },
+      {
+        "job_id": "job-train-embed",
+        "days": 5,
+        "gpu_hours": 200.0,
+        "energy_wh": 80000.0,
+        "carbon_before_g": 30400.0,
+        "carbon_after_g": 2400.0,
+        "carbon_saved_g": 28000.0
+      },
+      {
+        "job_id": "job-finetune",
+        "days": 3,
+        "gpu_hours": 36.0,
+        "energy_wh": 25200.0,
+        "carbon_before_g": 9576.0,
+        "carbon_after_g": 756.0,
+        "carbon_saved_g": 8820.0
+      },
+      {
+        "job_id": "job-dev-sandbox",
+        "days": 22,
+        "gpu_hours": 352.0,
+        "energy_wh": 52800.0,
+        "carbon_before_g": 20064.0,
+        "carbon_after_g": 1584.0,
+        "carbon_saved_g": 18480.0
+      },
+      {
+        "job_id": "job-batch-eval",
+        "days": 30,
+        "gpu_hours": 90.0,
+        "energy_wh": 63000.0,
+        "carbon_before_g": 23940.0,
+        "carbon_after_g": 1890.0,
+        "carbon_saved_g": 22050.0
+      }
+    ],
+    "regions": [
+      {
+        "region": "us-east-1",
+        "usd_per_kwh": 0.12,
+        "gco2_per_kwh": 380,
+        "electricity_usd": 214.67999999999998,
+        "carbon_g": 679820.0
+      },
+      {
+        "region": "us-west-2",
+        "usd_per_kwh": 0.07,
+        "gco2_per_kwh": 120,
+        "electricity_usd": 125.23000000000002,
+        "carbon_g": 214680.0
+      },
+      {
+        "region": "europe-north1",
+        "usd_per_kwh": 0.09,
+        "gco2_per_kwh": 30,
+        "electricity_usd": 161.01,
+        "carbon_g": 53670.0
+      },
+      {
+        "region": "europe-central2",
+        "usd_per_kwh": 0.18,
+        "gco2_per_kwh": 660,
+        "electricity_usd": 322.02,
+        "carbon_g": 1180740.0
+      },
+      {
+        "region": "us-east-wa",
+        "usd_per_kwh": 0.055,
+        "gco2_per_kwh": 90,
+        "electricity_usd": 98.395,
+        "carbon_g": 161010.0
+      }
+    ],
+    "saved_g": 626150.0,
+    "total_wh": 1789000.0,
+    "cleanest_region": "europe-north1",
+    "cheapest_region": "us-east-wa",
+    "balanced_region": "us-east-wa",
+    "before_g": 679820.0,
+    "after_g": 53670.0,
+    "savings_pct": 92.10526315789474
+  }
+}

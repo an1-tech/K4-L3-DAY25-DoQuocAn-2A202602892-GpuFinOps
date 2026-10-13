@@ -1,0 +1,24 @@
+{
+  "archive": "K4-L3-DAY25-DoQuocAn-2A202602892-GpuFinOps.zip",
+  "files": 119,
+  "bytes": 354115,
+  "sha256": "1e222f014521947c067760c24ccb86c9219cfa04f102362e279ddd775f39a536",
+  "validation": {
+    "client_date": "2026-10-13",
+    "timezone": "Asia/Bangkok",
+    "run_all_exit_code": 0,
+    "verify_passed": 11,
+    "verify_total": 11,
+    "original_tests_passed": 15,
+    "extension_tests_passed": 24,
+    "pytest_total_passed": 39,
+    "original_tests_unchanged": true,
+    "csv_inputs_unchanged": true,
+    "utf8_report_and_writeup": true,
+    "focus_sample_rows": 50,
+    "baseline_monthly_usd": 27133,
+    "optimized_monthly_usd": 14631,
+    "savings_monthly_usd": 12502,
+    "carbon_saved_gco2e": 626150.0
+  }
+}

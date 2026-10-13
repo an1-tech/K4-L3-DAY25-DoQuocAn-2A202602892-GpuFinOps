@@ -1,0 +1,6 @@
+region,usd_per_kwh,gco2_per_kwh,electricity_usd,carbon_g
+us-east-1,0.12,380,214.67999999999998,679820.0
+us-west-2,0.07,120,125.23000000000002,214680.0
+europe-north1,0.09,30,161.01,53670.0
+europe-central2,0.18,660,322.02,1180740.0
+us-east-wa,0.055,90,98.395,161010.0

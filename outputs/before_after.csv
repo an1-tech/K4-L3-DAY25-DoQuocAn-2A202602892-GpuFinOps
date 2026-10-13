@@ -1,0 +1,5 @@
+metric,before,after
+optimized_inference_daily,8.484622969999995,8.650797219999985
+optimized_inference_usd_per_m,1.1263231858853016,1.1483826116646052
+modeled_platform_optimized_monthly,14626,14631
+modeled_platform_savings_monthly,12507,12502
